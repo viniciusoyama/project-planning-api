@@ -24,9 +24,10 @@ ActiveRecord::Schema.define(version: 20160214035538) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
+    t.text     "description"
     t.integer  "client_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "projects", ["client_id"], name: "index_projects_on_client_id", using: :btree
