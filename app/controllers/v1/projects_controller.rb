@@ -1,4 +1,4 @@
-class ProjectsController < ApplicationController
+class V1::ProjectsController < V1::BaseController
   before_action :set_project, only: [:show, :update, :destroy]
 
   # GET /projects
@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
 
     if @project.save
-      render json: @project, status: :created, location: @project
+      render json: @project, status: :created, location: [:v1, @project]
     else
       render json: @project.errors, status: :unprocessable_entity
     end
