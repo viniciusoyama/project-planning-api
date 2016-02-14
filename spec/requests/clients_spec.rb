@@ -19,8 +19,8 @@ describe 'Clients API', type: :request do
       client2 = FactoryGirl.create :client
       get '/clients', params: {}
       expect(json.count).to eq(2)
-      expect(json[0]['name']).to eq(client1.name)
-      expect(json[1]['name']).to eq(client2.name)
+      expect(json[0]).to match_json_schema('v1/client')
+      expect(json[1]).to match_json_schema('v1/client')
       expect(response.status).to eq(200)
     end
   end
