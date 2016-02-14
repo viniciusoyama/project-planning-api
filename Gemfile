@@ -26,4 +26,5 @@ group :test do
   gem 'timecop'
   gem 'rspec-rails', '3.5.0.beta1'
   gem "codeclimate-test-reporter", require: nil
+  gem 'json-schema'
 end
