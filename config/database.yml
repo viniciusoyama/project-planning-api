@@ -1,0 +1,13 @@
+#encoding: utf-8
+
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: project_planning_api_development
+  pool: 5
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  database: project_planning_api_test
+  pool: 5
