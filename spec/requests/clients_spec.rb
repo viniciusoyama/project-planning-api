@@ -29,7 +29,7 @@ describe 'Clients API', type: :request do
     it "shows the client" do
       client = FactoryGirl.create :client
       get "/clients/#{client.id}", params: { id: client.id }
-      expect(json['name']).to eq(client.name)
+      expect(response).to match_json_schema('v1/client')
       expect(response.status).to eq(200)
     end
   end
