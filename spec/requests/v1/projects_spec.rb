@@ -21,10 +21,8 @@ describe 'Projects API', type: :request do
       get "/v1/projects", params: {}
 
       expect(json.count).to eq(2)
-      expect(json[0]['name']).to eq(project1.name)
-      expect(json[0]['description']).to eq(project1.description)
-      expect(json[1]['name']).to eq(project2.name)
-      expect(json[1]['description']).to eq(project2.description)
+      expect(json[0]).to match_json_schema('v1/project')
+      expect(json[1]).to match_json_schema('v1/project')
       expect(response.status).to eq(200)
     end
   end
@@ -33,7 +31,7 @@ describe 'Projects API', type: :request do
     it "shows the project" do
       project = FactoryGirl.create :project
       get "/v1/projects/#{project.id}", params: { id: project.id }
-      expect(JSON.parse(response.body)['name']).to eq(project.name)
+      expect(response).to match_json_schema('v1/project')
       expect(response.status).to eq(200)
     end
   end
