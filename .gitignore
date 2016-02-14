@@ -20,4 +20,4 @@ tmp
 # Ignore Byebug command history file.
 .byebug_history
 .env
-confi/database.yml
+config/database.yml
