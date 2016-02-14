@@ -8,8 +8,9 @@ ratings:
   paths:
   - app/**
   - lib/**
+
 exclude_paths:
-  - config/**/*
-  - spec/**/*
-  - db/**/*
-  - rubocop.yml
+- config/**/*
+- spec/**/*
+- db/**/*
+- rubocop.yml
