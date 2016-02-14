@@ -5,16 +5,13 @@ engines:
     enabled: true
   fixme:
     enabled: true
-    exclude_paths:
-    - *.md
-    - *.yml
 ratings:
   paths:
-  - app/**
-  - lib/**
+    - app/**
+    - lib/**
 
 exclude_paths:
-- config/**/*
-- spec/**/*
-- db/**/*
-- rubocop.yml
+  - config/**/*
+  - spec/**/*
+  - db/**/*
+  - rubocop.yml
