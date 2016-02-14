@@ -3,9 +3,6 @@ language: ruby
 rvm:
  - "2.2.3"
 
-addons:
-  postgresql: "9.4"
-
 services:
   - postgresql
 
@@ -13,6 +10,11 @@ before_script:
   - cp .env.sample .env
   - cp config/database.yml.sample config/database.yml
   - bundle exec rake db:create db:migrate db:test:prepare
-  
+
 script:
   - bundle exec rspec
+
+addons:
+  postgresql: "9.4"
+  code_climate:
+    repo_token: b7df1f5e3484da49593a3d3a5af64137041240eebeae74fbd4a852910bee0f75

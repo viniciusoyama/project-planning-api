@@ -1,0 +1,15 @@
+engines:
+  rubocop:
+    enabled: true
+  brakeman:
+    enabled: true
+  
+ratings:
+  paths:
+  - app/**
+  - lib/**
+exclude_paths:
+  - config/**/*
+  - spec/**/*
+  - db/**/*
+  - rubocop.yml

@@ -25,4 +25,5 @@ group :test do
   gem 'fakeweb'
   gem 'timecop'
   gem 'rspec-rails', '3.5.0.beta1'
+  gem "codeclimate-test-reporter", require: nil
 end
