@@ -17,7 +17,7 @@ describe ClientsController, type: :controller do
     it "lists all the clients" do
       client1 = FactoryGirl.create :client
       client2 = FactoryGirl.create :client
-      get :index, {}
+      get :index, params: {}
       expect(JSON.parse(response.body).count).to eq(2)
       expect(response.status).to eq(200)
     end
@@ -26,7 +26,7 @@ describe ClientsController, type: :controller do
   describe "GET #show" do
     it "shows the client" do
       client = FactoryGirl.create :client
-      get :show, { id: client.id }
+      get :show, params: { id: client.id }
       expect(JSON.parse(response.body)['name']).to eq(client.name)
       expect(response.status).to eq(200)
     end
@@ -36,19 +36,19 @@ describe ClientsController, type: :controller do
     context "with valid params" do
       it "creates a new Client" do
         expect do
-          post :create, { client: valid_attributes }
+          post :create, params: { client: valid_attributes }
         end.to change(Client, :count).by(1)
       end
 
       it "responds with 200" do
-        post :create, { client: valid_attributes }
+        post :create, params: { client: valid_attributes }
         expect(response.status).to eq(201)
       end
     end
 
     context "with invalid params" do
       it "respond with error" do
-        post :create, { client: invalid_attributes }
+        post :create, params: { client: invalid_attributes }
         expect(response.status).to eq(422)
       end
     end
@@ -64,7 +64,7 @@ describe ClientsController, type: :controller do
 
       it "updates the requested client" do
         client = FactoryGirl.create :client
-        put :update, { id: client.to_param, client: new_attributes }
+        put :update, params: { id: client.to_param, client: new_attributes }
         client.reload
         expect(client.name).to eq('editado')
         expect(response.status).to eq(200)
@@ -75,7 +75,7 @@ describe ClientsController, type: :controller do
     context "with invalid params" do
       it "respond with error" do
         client = FactoryGirl.create :client
-        put :update, { id: client.to_param, client: invalid_attributes }
+        put :update, params: { id: client.to_param, client: invalid_attributes }
         expect(response.status).to eq(422)
       end
     end
@@ -85,7 +85,7 @@ describe ClientsController, type: :controller do
     it "destroys the requested client" do
       client = Client.create! valid_attributes
       expect do
-        delete :destroy, { id: client.to_param }
+        delete :destroy, params: { id: client.to_param }
       end.to change(Client, :count).by(-1)
       expect(response.status).to eq(204)  
     end
