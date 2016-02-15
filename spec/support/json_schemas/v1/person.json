@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "email",
+    "job_title"
+  ],
+  "properties": {
+    "id" : { "type": "integer" },
+    "name" : { "type": "string" },
+    "email" : { "type": "string" },
+    "job_title" : { "type": "string" }
+  }
+}
